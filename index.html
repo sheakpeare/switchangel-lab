@@ -5,7 +5,6 @@
   <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
   <meta name="theme-color" content="#0a0a0a">
   <meta name="description" content="Botonera experimental para crear patrones con Strudel.">
-  <link rel="manifest" href="manifest.webmanifest">
   <title>Switch Angel Pattern Lab</title>
   <style>
     :root{--bg:#090909;--surface:#151515;--panel:#101010;--border:#303030;--text:#d4d4d4;--muted:#777;--accent:#ff4d00;--danger:#d21c1c;--ok:#00b85a;--mono:"Courier New",monospace;--safe:env(safe-area-inset-bottom,0px)}
@@ -62,7 +61,7 @@
       $('resetButton').addEventListener('click',()=>{state={...defaults};localStorage.removeItem(KEY);render();log('Ajustes restablecidos','warn')});
       document.addEventListener('keydown',event=>{if(event.target.matches('input,button'))return;if(event.key>='1'&&event.key<='4'){document.querySelector(`[data-preset="${['base','mask','chop','climax'][Number(event.key)-1]}"]`)?.click()}if(event.key==='0'||event.code==='Space'){event.preventDefault();$('stopButton').click()}});
       setInterval(()=>{const now=new Date();$('clock').textContent=now.toLocaleTimeString([], {hour:'2-digit',minute:'2-digit'})},1000);
-      if('serviceWorker' in navigator)navigator.serviceWorker.register('sw.js').catch(()=>{});render();log('Pattern Lab v1.3.0 iniciado','ok');
+      render();log('Pattern Lab v1.3.0 iniciado','ok');
     })();
   </script>
 </body>
